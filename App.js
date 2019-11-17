@@ -1,8 +1,9 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './client/store';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import MapScreen from './views/map-screen';
+import React from 'react'
+import {Provider} from 'react-redux'
+import store from './client/store'
+// import { StyleSheet, Text, View, Image } from 'react-native';
+import MapScreen from './views/map-screen'
+import '@babel/polyfill'
 
 // const styles = StyleSheet.create({
 //   container: {
@@ -22,5 +23,5 @@ export default function App() {
     <Provider store={store}>
       <MapScreen />
     </Provider>
-  );
+  )
 }

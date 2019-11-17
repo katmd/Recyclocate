@@ -7,12 +7,19 @@ module.exports = {
     '@babel/polyfill', // enables async-await
     path.join(__dirname, 'App.js')
   ],
+  externals: {
+    'react-native': 'react-native',
+    'react-native-maps': 'react-native-maps'
+  },
   output: {
     path: __dirname,
     filename: './public/bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      'react-native$': 'react-native-web'
+    }
   },
   devtool: 'source-map',
   watchOptions: {
@@ -23,7 +30,10 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react', '@babel/preset-env']
+        }
       }
     ]
   }
